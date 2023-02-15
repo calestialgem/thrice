@@ -4,8 +4,6 @@
 ##! This is a demo Thrice program that uses all the language features that could
 ##! fit in a single file. Written by Cem Geçgel <gecgelcem@outlook.com>.
 
-# This is a normal comment, it is not a documentation.
-
 ## This is a normal documentation. It documents the entity that fallows it,
 ## which is the `entrypoint` declaration in this case.
 ##
@@ -13,5 +11,28 @@
 
 entrypoint
 {
-
+  # This is a normal comment, it is not a documentation.
+  #
+  # Fallowing is an exhaustive list of valid expressions in the language.
 }
+
+# A class is a predicate over types; it is similar to interfaces in Java
+# language, but a direct equivalent would be concepts in C++ language because
+# it is solely useful in compile-time. Later they might be useful in runtime
+# similar to traits in the Rust language with virtual tables.
+#
+# `type` is a built-in class with a predicate that all types passes. It is also
+# used for creating qualified type aliases.
+
+## Class that solely consists of types `int` and `long`.
+class builtin_signed_integers { int, long };
+
+## Class of types that can be passed by value to function `print`.
+class printable
+{
+  func print(printable printed);
+}
+
+## Class of types that are both in classes `printable` and
+## `builtin_signed_integers`.
+class printable_builtin_singed_integers: printable, builtin_signed_integers {}
