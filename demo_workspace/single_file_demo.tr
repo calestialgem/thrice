@@ -1,0 +1,17 @@
+##! This is an inner documentation. It documents the entity that surrounds it,
+##! which is the `single_file_demo` package/module in this case.
+##!
+##! This is a demo Thrice program that uses all the language features that could
+##! fit in a single file. Written by Cem Geçgel <gecgelcem@outlook.com>.
+
+# This is a normal comment, it is not a documentation.
+
+## This is a normal documentation. It documents the entity that fallows it,
+## which is the `entrypoint` declaration in this case.
+##
+## `entrypoint` is the same as the main function in a C program.
+
+entrypoint
+{
+
+}
