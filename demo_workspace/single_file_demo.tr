@@ -16,23 +16,96 @@ entrypoint
   # Fallowing is an exhaustive list of valid expressions in the language.
 }
 
-# A class is a predicate over types; it is similar to interfaces in Java
-# language, but a direct equivalent would be concepts in C++ language because
-# it is solely useful in compile-time. Later they might be useful in runtime
-# similar to traits in the Rust language with virtual tables.
-#
-# `type` is a built-in class with a predicate that all types passes. It is also
-# used for creating qualified type aliases.
-
-## Class that solely consists of types `int` and `long`.
-class builtin_signed_integers { int, long };
-
-## Class of types that can be passed by value to function `print`.
-class printable
+## A class is a predicate for types. Class defines functions that must be
+## provided by a type. User defined types declare themselves as a member of the
+## class, and implement the functions. Built-in types can be made a member only
+## by the class itself.
+##
+## Classes are used for compile-time polymorphism.
+##
+## Fallowing is a class that requires a function named `add` that takes two
+## parameters with its type and return a result with its type. Then, the class
+## is implemented for all the built-in types.
+class Addable
 {
-  func print(printable printed);
+  ## A function declaration starts with keyword `func`; then comes the name.
+  ## After that, is the comma separated list of parameters. Function declaration
+  ## ends with the return type if there is any and a terminating semicolon.
+  func add(self l, self r) self;
+
+  ## A class might provide a default implementation. This is done with a
+  ## function definition instead of just a declaration. A function definition is
+  ## very similar to a declaration. The only difference is it has the function
+  ## body, which is a list of statements instead of a semicolon.
+  func addItself(self it) self { return add(it, it); }
+
+  # In the implementation of a class for a built-in type, the type comes first.
+  # Then, a scope is entered, which has the function definitions. Functions
+  # defined like this must solely consist of the ones required by the class.
+  # Furthermore, the superclasses of the class, if there is any, must also be
+  # implemented for the built-in types that the class is implemented for.
+
+  bool   { func add(bool l,   bool r)   bool   { return l || r; }}
+  byte   { func add(byte l,   byte r)   byte   { return l +  r; }}
+  int    { func add(int l,    int r)    int    { return l +  r; }}
+  uint   { func add(uint l,   uint r)   uint   { return l +  r; }}
+  long   { func add(long l,   long r)   long   { return l +  r; }}
+  ulong  { func add(ulong l,  ulong r)  ulong  { return l +  r; }}
+  float  { func add(float l,  float r)  float  { return l +  r; }}
+  double { func add(double l, double r) double { return l +  r; }}
 }
 
-## Class of types that are both in classes `printable` and
-## `builtin_signed_integers`.
-class printable_builtin_singed_integers: printable, builtin_signed_integers {}
+## Classes can have superclasses. All types implementing a subclass must also
+## implement all the superclasses. This means, a subclass might only implement
+## itself for a built-in type if all its superclasses also provide an
+## implementation for that built-in type.
+class Superposable: Addable
+{
+  func superpose(self left, self right) self { return add(left, right); }
+}
+
+## A struct is a product type that is composed of members of other types. Also,
+## types can have functions in them that are namespaced under them. Types can be
+## declared to be a member of some classes; in that case, they have to provide
+## functions required by all the classes they are declared to be in.
+struct Vector(float x, float y) Addable
+{
+  func add(Vector l, Vector r) Vector { return Vector(l.x + r.x, l.y + r.y); }
+}
+
+## An enum is a type with distinct and limited values called constants.
+enum Cardinal(NORTH, SOUTH, EAST, WEST)
+{
+  func toVector(Cardinal cardinal) Vector
+  {
+    switch (cardinal)
+    {
+      case (NORTH) return Vector(0, +1);
+      case (SOUTH) return Vector(0, -1);
+      case (EAST) return Vector(+1, 0);
+      case (WEST) return Vector(-1, 0);
+    }
+  }
+}
+
+## A union is a sum type that can be one of the alternatives.
+union Direction(Vector, Cardinal)
+{
+  func invert(Direction direction) Direction
+  {
+    switch (direction)
+    {
+      case (Vector vector) return Vector(-vector.x, -vector.y);
+      case (Cardinal cardinal)
+      {
+        switch (cardinal)
+        {
+          case (NORTH) return SOUTH;
+          case (SOUTH) return NORTH;
+          case (EAST) return EAST;
+          case (WEST) return WEST;
+        }
+      }
+    }
+  }
+}
