@@ -31,6 +31,9 @@ class Addable
   ## A function declaration starts with keyword `func`; then comes the name.
   ## After that, is the comma separated list of parameters. Function declaration
   ## ends with the return type if there is any and a terminating semicolon.
+  ##
+  ## `self` keyword refers to the enclosing type. In a class, the enclosing type
+  ## is the type that implements the class.
   func add(self l, self r) self;
 
   ## A class might provide a default implementation. This is done with a
@@ -70,13 +73,13 @@ class Superposable: Addable
 ## functions required by all the classes they are declared to be in.
 struct Vector(float x, float y) Addable
 {
-  func add(Vector l, Vector r) Vector { return Vector(l.x + r.x, l.y + r.y); }
+  func add(self l, self r) self { return self(l.x + r.x, l.y + r.y); }
 }
 
 ## An enum is a type with distinct and limited values called constants.
 enum Cardinal(NORTH, SOUTH, EAST, WEST)
 {
-  func toVector(Cardinal cardinal) Vector
+  func toVector(self cardinal) Vector
   {
     switch (cardinal)
     {
@@ -91,7 +94,7 @@ enum Cardinal(NORTH, SOUTH, EAST, WEST)
 ## A union is a sum type that can be one of the alternatives.
 union Direction(Vector, Cardinal)
 {
-  func invert(Direction direction) Direction
+  func invert(self direction) self
   {
     switch (direction)
     {
