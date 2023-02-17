@@ -42,27 +42,28 @@ class Addable
   ## body, which is a list of statements instead of a semicolon.
   func addItself(self it) self { return add(it, it); }
 
-  # In the implementation of a class for a built-in type, the type comes first.
-  # Then, a scope is entered, which has the function definitions. Functions
-  # defined like this must solely consist of the ones required by the class.
-  # Furthermore, the superclasses of the class, if there is any, must also be
-  # implemented for the built-in types that the class is implemented for.
+  # In the implementation of a class for a built-in type, the type comes after
+  # `implements` keyword. Then, a scope is entered, which has the function
+  # definitions. Functions defined like this must solely consist of the ones
+  # required by the class. Furthermore, the superclasses of the class, if there
+  # is any, must also be implemented for the built-in types that the class is
+  # implemented for.
 
-  bool   { func add(bool l,   bool r)   bool   { return l || r; }}
-  byte   { func add(byte l,   byte r)   byte   { return l +  r; }}
-  int    { func add(int l,    int r)    int    { return l +  r; }}
-  uint   { func add(uint l,   uint r)   uint   { return l +  r; }}
-  long   { func add(long l,   long r)   long   { return l +  r; }}
-  ulong  { func add(ulong l,  ulong r)  ulong  { return l +  r; }}
-  float  { func add(float l,  float r)  float  { return l +  r; }}
-  double { func add(double l, double r) double { return l +  r; }}
+  implements bool   { func add(bool l,   bool r)   bool   { return l || r; }}
+  implements byte   { func add(byte l,   byte r)   byte   { return l +  r; }}
+  implements int    { func add(int l,    int r)    int    { return l +  r; }}
+  implements uint   { func add(uint l,   uint r)   uint   { return l +  r; }}
+  implements long   { func add(long l,   long r)   long   { return l +  r; }}
+  implements ulong  { func add(ulong l,  ulong r)  ulong  { return l +  r; }}
+  implements float  { func add(float l,  float r)  float  { return l +  r; }}
+  implements double { func add(double l, double r) double { return l +  r; }}
 }
 
 ## Classes can have superclasses. All types implementing a subclass must also
 ## implement all the superclasses. This means, a subclass might only implement
 ## itself for a built-in type if all its superclasses also provide an
 ## implementation for that built-in type.
-class Superposable: Addable
+class Superposable extends Addable
 {
   func superpose(self left, self right) self { return add(left, right); }
 }
@@ -71,7 +72,7 @@ class Superposable: Addable
 ## types can have functions in them that are namespaced under them. Types can be
 ## declared to be a member of some classes; in that case, they have to provide
 ## functions required by all the classes they are declared to be in.
-struct Vector(float x, float y) Addable
+struct Vector(float x, float y) implements Addable
 {
   func add(self l, self r) self { return self(l.x + r.x, l.y + r.y); }
 }
