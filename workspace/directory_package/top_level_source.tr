@@ -1,0 +1,4 @@
+# This source is part of `directory_package` namespace.
+
+##! This package is a demo for directory packages. It also shows inter-package
+##! and inter-module features in the language.

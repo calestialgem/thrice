@@ -1,0 +1,82 @@
+# This is a comment, starts after the first "#" in a line and contains
+# everything in the line to its right. Juxtaposed comments of the same type are
+# joined; which means comments can have any whitespace between them.
+
+
+
+##! This is a comment that is marked as inner documentation by "#!" that comes
+##! after the "#", which marks the line as a comment. It documents the entity
+##! that surrounds it, which is the package named `file_package` in this case.
+
+# Fallowing is a exhaustive list of top-level definitions (D Group) in the
+# language.
+
+# [D0] Definition is binding an entity to an identifier. By default, the
+# definitions do not participate in the namespace; they are only available in
+# the source they are defined in. Using visibility modifiers, they can
+# participate in the namespace. Optionally one of the fallowing keywords can
+# come before a definition:
+#  - `private` makes the definition visible in the module it is defined in and
+# its submodules,
+#  - `protected` makes the definition visible everywhere in the package it is
+# defined in,
+#  - `public` makes the definition visible everywhere, including other packages.
+
+## This is a normal documentation. It documents the entity that fallows it,
+## which is the function definition in this case.
+
+## [D1] A function is an entity that has parameters, a return value, and a
+## statement that uses the parameters to find the return value.
+
+## Functions are defined with the `func` keyword; then, the identifier, which is
+## the name of the function comes. After the identifier, the parameters are
+## given in parentheses as a comma separated list of type and identifier pair.
+## After the closing parenthesis, an optional return type comes. Then the
+## function body is provided as a list of statements delimited with braces.
+
+func some_function()
+{
+  # Fallowing is an exhaustive list of statements (S Group) in the language.
+
+  # [S0] Statements are commands, which are given to the computer for it to
+  # execute them.
+
+  # [S1] Discarded expression statements are statements that consist solely of
+  # an expression and they are terminated with a semicolon. The expression is
+  # evaluated and its value is discarded.
+
+  # Fallowing is an exhaustive list of expressions (E Group) in the language.
+
+  # [E0] Expressions are patterns that describe a calculation, which can be
+  # evaluated to a value.
+
+  # [E1] Number literals are formed by a group of digits that can be optionally
+  # separated at any point using underscores.
+
+  5;
+  2_147_483_648;
+
+  # They might have a fraction part, which can also be underscore-separated and
+  # comes after an ".", and/or an optionally signed exponent part, which comes
+  # after an "e" and must be after the fractional part if both exists.
+
+  10.5;
+  5e3;
+  5e-4;
+  45_000.01234_56789e+1_0;
+
+  # [E2] Character literals are formed by surrounding a character with single
+  # quotes. The character might be an escape sequence. Has the codepoint value
+  # of the character inside. This does not depend on the source file encoding!
+
+  'a';
+  '\\';
+  '\"';
+  '\'';
+  '\n';
+  '\t';
+  '\fd';
+  '\000afd';
+
+
+}
