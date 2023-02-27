@@ -13,7 +13,7 @@ double var = 0; # 64-bit floating-point type
 100_000;          # number literal
 100_000.99_99_99; # number literal with fraction
 100_000e-10;      # number literal with exponent
-123.456e789;      # number literal with fraction and exponent
+123.456E789;      # number literal with fraction and exponent
 
 var; # access
 
