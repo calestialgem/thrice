@@ -1,0 +1,54 @@
+#! This is a demo file, showcasing all the features of Thrice that are added in
+#! the 0.1.1 version of the Rainfall compiler.
+
+# Boolean Algebra
+# ===============
+
+# `bool` type
+bool thisBoolIsFalse = true
+
+# Literals
+true
+false
+
+# Logical Operations
+
+true & true
+true | false
+
+# Comparison Operations
+
+5 == 5 # equal to
+5 != 5 # not equal to
+
+5 < 5  # less than
+5 > 5  # greater than
+5 <= 5 # less than or equal to
+5 >= 5 # greater than or equal to
+
+# Coercion to Arithmetic Types
+
+int thisIsOne = true
+int thisIsZero = false
+
+thisIsOne == 1
+thisIsZero == 0
+
+bool enableTerm1 = true
+double term0 = 10
+double term1 = 15
+double result = term0 + enableTerm1 * term1
+
+# Byte Type
+# =========
+
+# `byte` is the only unsigned type (the second if you consider `bool` unsigned)
+byte aByte = 10
+
+# since it is smaller than all signed types (`int` and `long`), it can be
+# coerced to them
+long aLong = aByte
+
+# also there is integer promotion to `int` with all arithmetic operations on
+# `byte`s
+int anInt = 2 * aByte
