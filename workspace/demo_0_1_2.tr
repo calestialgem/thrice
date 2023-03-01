@@ -10,8 +10,12 @@ const double CONSTANT = 2.72
 # `mut` modifier
 mut int number = 0
 
+mut bool flag = false
+
 # Assignment Statement
 number = 17
+
+flag = true
 
 # Compound Assignment
 number *= 1
@@ -20,6 +24,11 @@ number %= 1
 number += 1
 number -= 1
 
-# Increment & Decrement Statements
-number++
-number--
+flag &= true
+flag |= false
+
+# Increment & Decrement, and Flip Statements
+++number
+--number
+
+~flag
