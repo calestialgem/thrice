@@ -7,6 +7,11 @@
 # `const` modifier
 const double CONSTANT = 2.72
 
+# Out of Order Constant Access
+const int C = B + 3
+const int A = 1
+const int B = A + 1
+
 # `mut` modifier
 mut int number = 0
 
