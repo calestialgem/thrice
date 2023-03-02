@@ -23,15 +23,15 @@ if (f < 6) {
   f *= 2;
 }
 
-# Match Statement
-# ===============
+# Switch Statement
+# ================
 
 const int A = 0;
 const int B = 1;
 const int C = 2;
 const int D = 3;
 
-match (2) {
+switch (2) {
   A { int a = 17; }
   B { int b = 17; }
   C { int c = 17; }
@@ -39,30 +39,29 @@ match (2) {
   int _ { int z = 17; }
 }
 
-# Loop Statement
-# ==============
+# While, Break, and Continue Statements
+# =====================================
 
 const long COUNT = 100;
 mut long counter = 0;
-loop (counter < COUNT) {
+while (counter < COUNT) {
+  ++counter;
+
+  const long LIMIT = COUNT / 2;
+  if (counter > LIMIT) {
+    break;
+  }
+
+  const long LIMIT_2 = LIMIT * 5 / 3;
+  if (counter > LIMIT_2) {
+    continue;
+  }
+
   ++counter;
 }
 
-loop (mut long counter = 0; counter < COUNT; ++counter) {
-  const long LIMIT = COUNT / 2;
-  const long LIMIT_2 = LIMIT * 5 / 3;
-
-  if (counter < LIMIT) {
-    # continue statement
-    continue;
-  } else if (counter > LIMIT_2) {
-    # break statement
-    break;
-  }
-}
-
-# infinite loop
-loop {
+# infinite while
+while {
   break;
 }
 
@@ -80,14 +79,14 @@ int valueFromIf =
     20
   };
 
-int valueFromMatch =
-  match (4) {
+int valueFromSwitch =
+  switch (4) {
     15 { 15 }
     17 { 17 }
     int n { n }
   };
 
-int valueFromLoop =
-  loop {
+int valueFromWhile =
+  while {
     0
   };
