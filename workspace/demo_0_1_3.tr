@@ -36,7 +36,7 @@ match (2) {
   B { int b = 17; }
   C { int c = 17; }
   D { int d = 17; }
-  _ { int z = 17; }
+  int _ { int z = 17; }
 }
 
 # Loop Statement
@@ -84,7 +84,7 @@ int valueFromMatch =
   match (4) {
     15 { 15 }
     17 { 17 }
-    n { n }
+    int n { n }
   };
 
 int valueFromLoop =
