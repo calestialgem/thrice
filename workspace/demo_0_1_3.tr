@@ -1,0 +1,93 @@
+#! This is a demo file, showcasing all the features of Thrice that are added in
+#! the 0.1.3 version of Rainfall compiler.
+
+# Compound Statement
+# ==================
+
+int c = 9;
+
+{
+  int a = 5;
+  int b = a + c;
+}
+
+# If Statement
+# ============
+
+mut float f = 34;
+if (f < 6) {
+  f += 45;
+} else if (17 > f) {
+  f /= 19.65;
+} else {
+  f *= 2;
+}
+
+# Match Statement
+# ===============
+
+const int A = 0;
+const int B = 1;
+const int C = 2;
+const int D = 3;
+
+match (2) {
+  A { int a = 17; }
+  B { int b = 17; }
+  C { int c = 17; }
+  D { int d = 17; }
+  _ { int z = 17; }
+}
+
+# Loop Statement
+# ==============
+
+const long COUNT = 100;
+mut long counter = 0;
+loop (counter < COUNT) {
+  ++counter;
+}
+
+loop (mut long counter = 0; counter < COUNT; ++counter) {
+  const long LIMIT = COUNT / 2;
+  const long LIMIT_2 = LIMIT * 5 / 3;
+
+  if (counter < LIMIT) {
+    # continue statement
+    continue;
+  } else if (counter > LIMIT_2) {
+    # break statement
+    break;
+  }
+}
+
+# infinite loop
+loop {
+  break;
+}
+
+# Yield Statement
+# ===============
+
+int valueFromCompound = {
+  52
+};
+
+int valueFromIf =
+  if (true) {
+    17
+  } else {
+    20
+  };
+
+int valueFromMatch =
+  match (4) {
+    15 { 15 }
+    17 { 17 }
+    n { n }
+  };
+
+int valueFromLoop =
+  loop {
+    0
+  };
