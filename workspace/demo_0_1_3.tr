@@ -1,8 +1,8 @@
 #! This is a demo file, showcasing all the features of Thrice that are added in
 #! the 0.1.3 version of Rainfall compiler.
 
-# Binding Expression
-# ==================
+# Matching Expression
+# ===================
 
 int c = 9;
 
