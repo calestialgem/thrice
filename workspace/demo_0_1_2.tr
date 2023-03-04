@@ -1,6 +1,99 @@
 #! This is a demo file, showcasing all the features of Thrice that are added in
 #! the 0.1.2 version of Rainfall compiler.
 
+# ==============================================================================
+# --------------------------- [*}{*] Same as 0.1.0 * ---------------------------
+# ==============================================================================
+
+13 + 56          # discarded expression
+float var = 3.14 # local variable definition
+
+# and variable shadowing
+int    var = 0 # 32-bit integer type
+long   var = 0 # 64-bit integer type
+float  var = 0 # 32-bit floating-point type
+double var = 0 # 64-bit floating-point type
+
+100_000          # number literal
+100_000.99_99_99 # number literal with fraction
+100_000e-10      # number literal with exponent
+123.456E789      # number literal with fraction and exponent
+
+var # access
+
+3 * (5 + 2) # group
+
++5 # posate
+-5 # negate
+
+5 * 5 # multiply
+5 / 5 # divide
+5 % 5 # reminder
+
+5 + 5 # add
+5 - 5 # subtract
+
+# ==============================================================================
+# --------------------------- [*}{*] Same as 0.1.1 * ---------------------------
+# ==============================================================================
+
+# Boolean Algebra
+# ===============
+
+# `bool` type
+bool thisBoolIsFalse = true
+
+# Literals
+true
+false
+
+# Logical Operations
+
+true & true
+true | false
+!false
+
+# Comparison Operations
+
+5 == 5 # equal to
+5 != 5 # not equal to
+
+5 < 5  # less than
+5 > 5  # greater than
+5 <= 5 # less than or equal to
+5 >= 5 # greater than or equal to
+
+# Coercion to Arithmetic Types
+
+int thisIsOne = true
+int thisIsZero = false
+
+thisIsOne == 1
+thisIsZero == 0
+
+bool enableTerm1 = true
+double term0 = 10
+double term1 = 15
+double result = term0 + enableTerm1 * term1
+
+# Byte Type
+# =========
+
+# `byte` is the only unsigned type (the second if you consider `bool` unsigned)
+byte aByte = 10
+
+# since it is smaller than all signed types (`int` and `long`), it can be
+# coerced to them
+long aLong = aByte
+
+# also there is integer promotion to `int` with all arithmetic operations on
+# `byte`s
+int anInt = 2 * aByte
+
+# ==============================================================================
+# --------------------------- *** Added in 0.1.2 *** ---------------------------
+# ==============================================================================
+
 # Type Qualifiers
 # ===============
 

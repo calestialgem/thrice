@@ -1,6 +1,10 @@
 #! This is a demo file, showcasing all the features of Thrice that can be
 #! compiled by the 0.1.0 version of the Rainfall compiler.
 
+# ==============================================================================
+# --------------------------- *** Added in 0.1.0 *** ---------------------------
+# ==============================================================================
+
 13 + 56          # discarded expression
 float var = 3.14 # local variable definition
 
