@@ -159,16 +159,16 @@ else f *= 2;
 # Switch Statement
 # ================
 
-const int A = 0;
-const int B = 1;
-const int C = 2;
-const int D = 3;
+const int D = 0;
+const int E = 1;
+const int F = 2;
+const int G = 3;
 
 switch (2) {
-  case (A) int a = 17;
-  case (B) int b = 17;
-  case (C) int c = 17;
-  case (D) int d = 17;
+  case (D) int a = 17;
+  case (E) int b = 17;
+  case (F) int c = 17;
+  case (G) int d = 17;
   default int z = 17;
 }
 
