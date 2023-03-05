@@ -138,7 +138,7 @@ flag |= false;
 # Semicolon Statement Terminators
 # ===============================
 
-5;
+int c = 5;
 
 # Compound Statement
 # ==================
