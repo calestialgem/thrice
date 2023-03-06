@@ -1,0 +1,272 @@
+#! This is a demo file, showcasing all the features of Thrice that can be
+#! compiled by the 0.2.0 version of the Rainfall compiler.
+
+# ==============================================================================
+# --------------------------- [*}{*] Same as 0.1.0 * ---------------------------
+# ==============================================================================
+
+13 + 56;          # discarded expression
+float var = 3.14; # local variable definition
+
+# and variable shadowing
+int var = 0;    # 32-bit integer type
+long var = 0;   # 64-bit integer type
+float var = 0;  # 32-bit floating-point type
+double var = 0; # 64-bit floating-point type
+
+100_000;          # number literal
+100_000.99_99_99; # number literal with fraction
+100_000e-10;      # number literal with exponent
+123.456E789;      # number literal with fraction and exponent
+
+var; # access
+
+3 * (5 + 2); # group
+
++5; # posate
+-5; # negate
+
+5 * 5; # multiply
+5 / 5; # divide
+5 % 5; # reminder
+
+5 + 5; # add
+5 - 5; # subtract
+
+# ==============================================================================
+# --------------------------- [*}{*] Same as 0.1.1 * ---------------------------
+# ==============================================================================
+
+# Boolean Algebra
+# ===============
+
+# `bool` type
+bool thisBoolIsFalse = true;
+
+# Literals
+true;
+false;
+
+# Logical Operations
+
+true & true;
+true | false;
+!false;
+
+# Comparison Operations
+
+5 == 5; # equal to
+5 != 5; # not equal to
+
+5 < 5;  # less than
+5 > 5;  # greater than
+5 <= 5; # less than or equal to
+5 >= 5; # greater than or equal to
+
+# Coercion to Arithmetic Types
+
+int thisIsOne = true;
+int thisIsZero = false;
+
+thisIsOne == 1;
+thisIsZero == 0;
+
+bool enableTerm1 = true;
+double term0 = 10;
+double term1 = 15;
+double result = term0 + enableTerm1 * term1;
+
+# Byte Type
+# =========
+
+# `byte` is the only unsigned type (the second if you consider `bool` unsigned)
+byte aByte = 10;
+
+# since it is smaller than all signed types (`int` and `long`), it can be
+# coerced to them
+long aLong = aByte;
+
+# also there is integer promotion to `int` with all arithmetic operations on
+# `byte`s
+int anInt = 2 * aByte;
+
+# ==============================================================================
+# --------------------------- [*}{*] Same as 0.1.2 * ---------------------------
+# ==============================================================================
+
+# Type Qualifiers
+# ===============
+
+# `const` modifier
+const double CONSTANT = 2.72;
+
+# `mut` modifier
+mut int number = 0;
+
+mut bool flag = false;
+
+# Assignment Statement
+number = 17;
+
+flag = true;
+
+# Compound Assignment
+number *= 1;
+number /= 1;
+number %= 1;
+number += 1;
+number -= 1;
+
+flag &= true;
+flag |= false;
+
+# Increment & Decrement, and Flip Statements
+++number;
+--number;
+
+~flag;
+
+# ==============================================================================
+# --------------------------- [*}{*] Same as 0.2.0 * ---------------------------
+# ==============================================================================
+
+# Semicolon Statement Terminators
+# ===============================
+
+int c = 5;
+
+# Compound Statement
+# ==================
+
+{
+  int a = 5;
+  int b = a + c;
+}
+
+# If Statement
+# ============
+
+mut float f = 34;
+if (f < 6) f += 45;
+else if (17 > f) f /= 19.65;
+else f *= 2;
+
+# Switch Statement
+# ================
+
+const int D = 0;
+const int E = 1;
+const int F = 2;
+const int G = 3;
+
+switch (2) {
+  case (D) int a = 17;
+  case (E) int b = 17;
+  case (F) int c = 17;
+  case (G) int d = 17;
+  default int z = 17;
+}
+
+# While, Break, and Continue Statements
+# =====================================
+
+const long COUNT = 100;
+mut long counter = 0;
+while (counter < COUNT) {
+  ++counter;
+
+  const long LIMIT = COUNT / 2;
+  if (counter > LIMIT) break;
+
+  const long LIMIT_2 = LIMIT * 5 / 3;
+  if (counter > LIMIT_2) continue;
+
+  ++counter;
+}
+
+# ==============================================================================
+# --------------------------- [*}{*] Same as 0.3.0 * ---------------------------
+# ==============================================================================
+
+# Removed out of order constants.
+const int A = 1;
+const int B = A + 1;
+const int C = B + 3;
+
+# shadowing constants
+const int A = 1;
+const int A = A + 1;
+const int A = A + 3;
+
+# scoped constants
+{
+  const int A = 7;
+  A == 7;
+}
+A == 5;
+
+# ==============================================================================
+# --------------------------- [*}{*] Same as 0.3.1 * ---------------------------
+# ==============================================================================
+
+# type inference
+const auto LENGTH = 10_000;
+
+# references
+mut int a = 5;
+&mut auto reference = a;
+reference = 7;
+reference += a;
+
+# ==============================================================================
+# --------------------------- [*}{*] Same as 0.3.2 * ---------------------------
+# ==============================================================================
+
+# compound literals for lossy arithmetic conversions
+auto this_is_an_int = 33_567;
+
+# no need for conversion; `long` is bigger than `int`
+long this_is_a_long = this_is_an_int;
+
+# but it lets to use `auto`
+auto this_is_another_long = long{ this_is_an_int };
+
+# explicit conversion is necessary; `byte` is smaller than `int`
+auto this_is_a_byte = byte{ this_is_an_int };
+
+# ==============================================================================
+# --------------------------- *** Added in 0.3.3 *** ---------------------------
+# ==============================================================================
+
+# Structure Types
+# ===============
+
+# definition
+struct Vector { float x, float y, float z }
+
+# initialization
+auto aVector = Vector { x = 5.5, y = 10, z = 0 }; # explicitly giving members
+auto v = Vector { y = 10, x = 5.5, z = 0 }; # explicit, out of order
+float x = 10;
+Vector { x, y = 666.666, z = 7 }; # implicitly `x` taken from `x` above
+Vector { y = 10, v }; # implicitly `x` and `z` taken from `v` above
+Vector { v }; # implicitly all members are taken from `v` above
+
+# member access
+auto x = aVector.x;
+mut auto v = Vector { x = 16, y = 7.7 };
+v.x = x;
+v.y += v.x;
+
+# copy
+v = aVector;
+
+# `struct`s in `struct`s
+struct Inner { bool on }
+struct Outer { Inner first, Inner second }
+
+# and nested initialization
+auto outer = Outer {
+  first = Inner { on = false },
+  second = Inner { on = true }, # trailing comma allowed!
+}
