@@ -269,4 +269,4 @@ struct Outer { Inner first, Inner second }
 auto outer = Outer {
   first = Inner { on = false },
   second = Inner { on = true }, # trailing comma allowed!
-}
+};
