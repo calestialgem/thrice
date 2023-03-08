@@ -1,0 +1,200 @@
+#! This is a demo file, showcasing all the features of Thrice that can be
+#! compiled by the alpha 1.0.0 version of the Rainfall compiler.
+
+export auto main = func(() void)
+{
+  # [X] Expression
+
+  # [X::101] Promotion
+  +5;
+
+  # [X::102] Negation
+  -5;
+
+  # [X::103] Addition
+  17 + 5;
+
+  # [X::104] Subtraction
+  17 - 5;
+
+  # [X::105] Multiplication
+  17 * 5;
+
+  # [X::106] Division
+  17 / 5;
+
+  # [X::107] Reminder
+  17 % 5;
+
+  # [X::201] Bitwise NOT
+  ~5;
+
+  # [X::202] Bitwise AND
+  17 & 5;
+
+  # [X::203] Bitwise OR
+  17 | 5;
+
+  # [X::204] Bitwise XOR
+  17 ^ 5;
+
+  # [X::205] Bitwise Left Shift
+  17 << 5;
+
+  # [X::206] Bitwise Right Shift
+  17 >> 5;
+
+  # [X::301] Logical NOT
+  !false;
+
+  # [X::302] Logical AND
+  true && true;
+
+  # [X::303] Logical OR
+  true || false;
+
+  # [X::401] Equal To
+  true == true;
+
+  # [X::402] Not Equal To
+  true != false;
+
+  # [X::403] Less Than
+  true < true;
+
+  # [X::404] Greater Than
+  true > false;
+
+  # [X::405] Less Than Or Equal To
+  true <= true;
+
+  # [X::406] Greater Than or Equal To
+  true >= false;
+
+  # [X::501] Basic Assignment
+  mut i32 var = 17;
+  var = 60;
+
+  # [X::502] Addition Assignment
+  var += 60;
+
+  # [X::503] Subtraction Assignment
+  var -= 60;
+
+  # [X::504] Multiplication Assignment
+  var *= 60;
+
+  # [X::505] Division Assignment
+  var /= 60;
+
+  # [X::506] Reminder Assignment
+  var %= 60;
+
+  # [X::507] Bitwise AND Assignment
+  var &= 60;
+
+  # [X::508] Bitwise OR Assignment
+  var |= 60;
+
+  # [X::509] Bitwise XOR Assignment
+  var ^= 60;
+
+  # [X::510] Bitwise Left Shift Assignment
+  var <<= 60;
+
+  # [X::511] Bitwise Right Shift Assignment
+  var >>= 60;
+
+  # [X::601] Prefix Increment
+  ++var;
+
+  # [X::602] Prefix Decrement
+  --var;
+
+  # [X::603] Postfix Increment
+  var++;
+
+  # [X::604] Postfix Decrement
+  var--;
+
+  # [X::701] Access
+  tr::i32;
+  var;
+
+  # [X::702] Member Access
+  auto vector = struct(f32 x, f32 y, f32 z);
+  vector { x = 6.54, y = 1, z = -17 }.x;
+
+  # [X::801] Number Constant
+  2_147_483_647;
+
+  # [X::802] Compound Constant
+  i32 { 45 };
+
+  # [X::803] Function Constant
+  auto product = func((i32 x, i32 y) i32)
+  {
+    return x * y;
+  }
+
+  # [X::804] Structure Constant
+  auto city = struct(i64 population, i8 development);
+
+  # [X::901] Function Call
+  product(10, 20);
+
+  # [X::1001] Constant Qualified
+  const i32 constant = 17;
+
+  # [T::1002] Mutable Qualified
+  mut i32 mutable = 17;
+
+  # [T::1003] Reference Qualified
+  &i32 ref_plain = plain;
+  &mut i32 ref_mutable = mutable;
+
+  # [T::1101] Grouping
+  (17);
+
+  # [S] Statement
+
+  # [S::101] Definition Statement
+  mut i32 var = 17;
+
+  # [S::102] Expression Statement
+  17;
+
+  # [S::201] Compound Statement
+  {
+    mut i32 var = 17;
+    17;
+  }
+
+  # [S::202] If Statement
+  if (true) 17;
+  else 60;
+
+  # [S::203] Switch Statement
+  switch (var)
+  {
+    case (17) 6;
+    case (60) 15;
+    default 77;
+  }
+
+  # [S::204] While Statement
+  while (false) {}
+
+  # [S::205] For Statement
+  for (mut i32 i = 0; i < 100; i++)
+  {
+    # [S::206] Break Statement
+    if (i > 50) break;
+
+    # [S::207] Continue Statement
+    else continue;
+  }
+
+  # [S::208] Return Statement
+  return;
+};
