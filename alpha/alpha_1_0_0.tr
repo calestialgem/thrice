@@ -1,200 +1,238 @@
 #! This is a demo file, showcasing all the features of Thrice that can be
 #! compiled by the alpha 1.0.0 version of the Rainfall compiler.
 
-export auto main = func(() void)
+# [D] Definition
+
+# [D::101] Function
+export func main() tr::void
 {
-  # [X] Expression
-
-  # [X::101] Promotion
-  +5;
-
-  # [X::102] Negation
-  -5;
-
-  # [X::103] Addition
-  17 + 5;
-
-  # [X::104] Subtraction
-  17 - 5;
-
-  # [X::105] Multiplication
-  17 * 5;
-
-  # [X::106] Division
-  17 / 5;
-
-  # [X::107] Reminder
-  17 % 5;
-
-  # [X::201] Bitwise NOT
-  ~5;
-
-  # [X::202] Bitwise AND
-  17 & 5;
-
-  # [X::203] Bitwise OR
-  17 | 5;
-
-  # [X::204] Bitwise XOR
-  17 ^ 5;
-
-  # [X::205] Bitwise Left Shift
-  17 << 5;
-
-  # [X::206] Bitwise Right Shift
-  17 >> 5;
-
-  # [X::301] Logical NOT
-  !false;
-
-  # [X::302] Logical AND
-  true && true;
-
-  # [X::303] Logical OR
-  true || false;
-
-  # [X::401] Equal To
-  true == true;
-
-  # [X::402] Not Equal To
-  true != false;
-
-  # [X::403] Less Than
-  true < true;
-
-  # [X::404] Greater Than
-  true > false;
-
-  # [X::405] Less Than Or Equal To
-  true <= true;
-
-  # [X::406] Greater Than or Equal To
-  true >= false;
-
-  # [X::501] Basic Assignment
-  mut i32 var = 17;
-  var = 60;
-
-  # [X::502] Addition Assignment
-  var += 60;
-
-  # [X::503] Subtraction Assignment
-  var -= 60;
-
-  # [X::504] Multiplication Assignment
-  var *= 60;
-
-  # [X::505] Division Assignment
-  var /= 60;
-
-  # [X::506] Reminder Assignment
-  var %= 60;
-
-  # [X::507] Bitwise AND Assignment
-  var &= 60;
-
-  # [X::508] Bitwise OR Assignment
-  var |= 60;
-
-  # [X::509] Bitwise XOR Assignment
-  var ^= 60;
-
-  # [X::510] Bitwise Left Shift Assignment
-  var <<= 60;
-
-  # [X::511] Bitwise Right Shift Assignment
-  var >>= 60;
-
-  # [X::601] Prefix Increment
-  ++var;
-
-  # [X::602] Prefix Decrement
-  --var;
-
-  # [X::603] Postfix Increment
-  var++;
-
-  # [X::604] Postfix Decrement
-  var--;
-
-  # [X::701] Access
-  tr::i32;
-  var;
-
-  # [X::702] Member Access
-  auto vector = struct(f32 x, f32 y, f32 z);
-  vector { x = 6.54, y = 1, z = -17 }.x;
-
-  # [X::801] Number Constant
-  2_147_483_647;
-
-  # [X::802] Compound Constant
-  i32 { 45 };
-
-  # [X::803] Function Constant
-  auto product = func((i32 x, i32 y) i32)
+  func product(tr::i32 x, tr::i32 y) tr::i32
   {
     return x * y;
   }
 
-  # [X::804] Structure Constant
-  auto city = struct(i64 population, i8 development);
+  # [D::201] Structure
+  struct vector { tr::f32 x, tr::f32 y }
 
-  # [X::901] Function Call
+  # [D::301] Type Alias
+  type vector_alias = vector;
+
+  # [D::401] Variable
+  mut tr::i32 var = 17;
+
+  # [X] Expression
+
+  # [X::101] Numeric Constant
+  2_147_483_647;
+  3.14;
+  3.5e6;
+
+  # [X::102] Compound Constant
+  tr::i32 { 5.5 };
+  vector v = vector { x = 5.5, y = 10 };
+
+  # [X::201] Grouping
+  (17);
+
+  # [X::202] Access
+  tr::true;
+  ::main;
+  var;
+
+  # [X::203] Member Access
+  v.x;
+
+  # [X::204] Function Call
   product(10, 20);
 
-  # [X::1001] Constant Qualified
-  const i32 constant = 17;
+  # [X::301] Promotion
+  +5;
 
-  # [T::1002] Mutable Qualified
-  mut i32 mutable = 17;
+  # [X::302] Negation
+  -5;
 
-  # [T::1003] Reference Qualified
-  &i32 ref_plain = plain;
-  &mut i32 ref_mutable = mutable;
+  # [X::303] Addition
+  17 + 5;
 
-  # [T::1101] Grouping
-  (17);
+  # [X::304] Subtraction
+  17 - 5;
+
+  # [X::305] Multiplication
+  17 * 5;
+
+  # [X::306] Division
+  17 / 5;
+
+  # [X::307] Reminder
+  17 % 5;
+
+  # [X::308] Bitwise NOT
+  ~5;
+
+  # [X::309] Bitwise AND
+  17 & 5;
+
+  # [X::310] Bitwise OR
+  17 | 5;
+
+  # [X::311] Bitwise XOR
+  17 ^ 5;
+
+  # [X::312] Bitwise Left Shift
+  17 << 5;
+
+  # [X::313] Bitwise Right Shift
+  17 >> 5;
+
+  # [X::401] Logical NOT
+  !tr::false;
+
+  # [X::402] Logical AND
+  tr::true && tr::true;
+
+  # [X::403] Logical OR
+  tr::true || tr::false;
+
+  # [X::501] Equal To
+  17 == 60;
+
+  # [X::502] Not Equal To
+  17 != 60;
+
+  # [X::503] Less Than
+  17 < 60;
+
+  # [X::504] Greater Than
+  17 > 60;
+
+  # [X::505] Less Than Or Equal To
+  17 <= 60;
+
+  # [X::506] Greater Than or Equal To
+  17 >= 60;
+
+  # [X::601] Basic Assignment
+  var = 60;
+
+  # [X::602] Addition Assignment
+  var += 60;
+
+  # [X::603] Subtraction Assignment
+  var -= 60;
+
+  # [X::604] Multiplication Assignment
+  var *= 60;
+
+  # [X::605] Division Assignment
+  var /= 60;
+
+  # [X::606] Reminder Assignment
+  var %= 60;
+
+  # [X::607] Bitwise AND Assignment
+  var &= 60;
+
+  # [X::608] Bitwise OR Assignment
+  var |= 60;
+
+  # [X::609] Bitwise XOR Assignment
+  var ^= 60;
+
+  # [X::610] Bitwise Left Shift Assignment
+  var <<= 60;
+
+  # [X::611] Bitwise Right Shift Assignment
+  var >>= 60;
+
+  # [X::701] Prefix Increment
+  ++var;
+
+  # [X::702] Prefix Decrement
+  --var;
+
+  # [X::703] Postfix Increment
+  var++;
+
+  # [X::704] Postfix Decrement
+  var--;
+
+  # [T] Type
+
+  # [T::101] Access
+  tr::bool flag = tr::false;
+  tr::u8 plain = 22;
+  vector my_vec = v;
+
+  # [T::201] Constant Qualified
+  const tr::u8 constant = 17;
+
+  # [T::202] Mutable Qualified
+  mut tr::u8 mutable = 60;
+
+  # [T::203] Reference Qualified
+  &tr::u8 reference = plain;
+
+  # [T::204] Mutable Reference Qualified
+  &mut tr::u8 mutable_reference = mutable;
+
+  # [T::301] Function
+  type unsigned_long_binary_operation = func(tr::u64, tr::u64) tr::u64;
 
   # [S] Statement
 
   # [S::101] Definition Statement
-  mut i32 var = 17;
+  mut tr::i32 variable = 17;
 
   # [S::102] Expression Statement
   17;
 
   # [S::201] Compound Statement
   {
-    mut i32 var = 17;
-    17;
+    mut tr::i32 my_int = 80;
+    my_int++;
   }
 
-  # [S::202] If Statement
-  if (true) 17;
-  else 60;
+  # [S::202] If Selection Statement
+  if (true)
+    17;
+  else
+    60;
 
-  # [S::203] Switch Statement
-  switch (var)
+  # [S::203] Switch Selection Statement
+  switch (variable)
   {
-    case (17) 6;
+    case (constant) 6;
     case (60) 15;
     default 77;
   }
 
-  # [S::204] While Statement
-  while (false) {}
-
-  # [S::205] For Statement
-  for (mut i32 i = 0; i < 100; i++)
+  # [S::301] While Iteration Statement
+  mut tr::bool loop = true;
+  label: while (loop)
   {
-    # [S::206] Break Statement
-    if (i > 50) break;
+    loop = false;
 
-    # [S::207] Continue Statement
-    else continue;
+    # [S::302] For Iteration Statement
+    for (mut tr::i32 i = 0; i < 100; i++)
+    {
+      if (i > 50)
+        # [S::401] Break Jump Statement
+        break;
+      else if (i > 40)
+        break label;
+      else if (i > 30)
+        # [S::402] Continue Jump Statement
+        continue label;
+      else
+        continue;
+    }
   }
 
-  # [S::208] Return Statement
+  func returns_an_int() tr::i32
+  {
+    # [S::403] Return Jump Statement
+    return 5;
+  }
+
   return;
-};
+}
