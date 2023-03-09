@@ -193,7 +193,7 @@ export func main() tr::void
   }
 
   # [S::202] If Selection Statement
-  if (true)
+  if (tr::true)
     17;
   else
     60;
@@ -207,10 +207,10 @@ export func main() tr::void
   }
 
   # [S::301] While Iteration Statement
-  mut tr::bool loop = true;
+  mut tr::bool loop = tr::true;
   label: while (loop)
   {
-    loop = false;
+    loop = tr::false;
 
     # [S::302] For Iteration Statement
     for (mut tr::i32 i = 0; i < 100; i++)
