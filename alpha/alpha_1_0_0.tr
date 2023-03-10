@@ -183,10 +183,10 @@ export func main() tr::void
 
   # [S] Statement
 
-  # [S::101] Definition Statement
+  # [S::101] Define Statement
   mut tr::i32 variable = 17;
 
-  # [S::102] Expression Statement
+  # [S::102] Discard Statement
   17;
 
   # [S::201] Compound Statement
