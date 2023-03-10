@@ -8,7 +8,7 @@ export func main() tr::void {
   func product(tr::i32 x, tr::i32 y) tr::i32 { return x * y; }
 
   # [D::201] Structure Definition
-  struct vector { tr::f32 x, tr::f32 y }
+  struct vector{tr::f32 x, tr::f32 y}
 
   # [D::301] Type Alias Definition
   type vector_alias = vector;
@@ -24,8 +24,8 @@ export func main() tr::void {
   3.5e6;
 
   # [X::201] Initialization
-  tr::i32 { 5.5 };
-  vector v = vector { x = 5.5, y = 10 };
+  tr::i32{5.5};
+  vector v = vector{5.5, 10};
 
   # [X::202] Grouping
   (17);
