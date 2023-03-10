@@ -163,6 +163,9 @@ export func main() tr::void
   tr::u8 plain = 22;
   vector my_vec = v;
 
+  # [T::102] Inferred
+  auto u = v;
+
   # [T::201] Constant Qualified
   const tr::u8 constant = 17;
 
