@@ -4,12 +4,8 @@
 # [D] Definition
 
 # [D::101] Function Definition
-export func main() tr::void
-{
-  func product(tr::i32 x, tr::i32 y) tr::i32
-  {
-    return x * y;
-  }
+export func main() tr::void {
+  func product(tr::i32 x, tr::i32 y) tr::i32 { return x * y; }
 
   # [D::201] Structure Definition
   struct vector { tr::f32 x, tr::f32 y }
@@ -196,14 +192,11 @@ export func main() tr::void
   }
 
   # [S::202] If Selection Statement
-  if (tr::true)
-    17;
-  else
-    60;
+  if (tr::true) 17;
+  else 60;
 
   # [S::203] Switch Selection Statement
-  switch (variable)
-  {
+  switch (variable) {
     case (constant) 6;
     case (60) 15;
     default 77;
@@ -211,31 +204,22 @@ export func main() tr::void
 
   # [S::301] While Iteration Statement
   mut tr::bool loop = tr::true;
-  label: while (loop)
-  {
+  label: while (loop) {
     loop = tr::false;
 
     # [S::302] For Iteration Statement
-    for (mut tr::i32 i = 0; i < 100; i++)
-    {
-      if (i > 50)
-        # [S::401] Break Jump Statement
-        break;
-      else if (i > 40)
-        break label;
-      else if (i > 30)
-        # [S::402] Continue Jump Statement
-        continue label;
-      else
-        continue;
+    for (mut tr::i32 i = 0; i < 100; i++) {
+      # [S::401] Break Jump Statement
+      if (i > 50) break;
+      else if (i > 40) break label;
+      # [S::402] Continue Jump Statement
+      else if (i > 30) continue label;
+      else continue;
     }
   }
 
-  func returns_an_int() tr::i32
-  {
-    # [S::403] Return Jump Statement
-    return 5;
-  }
+  # [S::403] Return Jump Statement
+  func returns_an_int() tr::i32 { return 5; }
 
   return;
 }
