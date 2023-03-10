@@ -3,7 +3,7 @@
 
 # [D] Definition
 
-# [D::101] Function
+# [D::101] Function Definition
 export func main() tr::void
 {
   func product(tr::i32 x, tr::i32 y) tr::i32
@@ -11,13 +11,13 @@ export func main() tr::void
     return x * y;
   }
 
-  # [D::201] Structure
+  # [D::201] Structure Definition
   struct vector { tr::f32 x, tr::f32 y }
 
-  # [D::301] Type Alias
+  # [D::301] Type Alias Definition
   type vector_alias = vector;
 
-  # [D::401] Variable
+  # [D::401] Variable Definition
   mut tr::i32 var = 17;
 
   # [X] Expression
@@ -27,22 +27,22 @@ export func main() tr::void
   3.14;
   3.5e6;
 
-  # [X::102] Compound Constant
+  # [X::201] Initialization
   tr::i32 { 5.5 };
   vector v = vector { x = 5.5, y = 10 };
 
-  # [X::201] Grouping
+  # [X::202] Grouping
   (17);
 
-  # [X::202] Access
+  # [X::203] Access
   tr::true;
   ::main;
   var;
 
-  # [X::203] Member Access
+  # [X::204] Member Access
   v.x;
 
-  # [X::204] Function Call
+  # [X::205] Function Call
   product(10, 20);
 
   # [X::301] Promotion
