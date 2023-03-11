@@ -4,17 +4,17 @@
 # [D] Definition
 
 # [D::101] Function Definition
-export func main() tr::void {
-  func product(tr::i32 x, tr::i32 y) tr::i32 { return x * y; }
+export func main() void {
+  func product(i32 x, i32 y) i32 { return x * y; }
 
   # [D::201] Structure Definition
-  struct vector{tr::f32 x, tr::f32 y}
+  struct vector{f32 x, f32 y}
 
   # [D::301] Type Alias Definition
   type vector_alias = vector;
 
   # [D::401] Variable Definition
-  mut tr::i32 var = 17;
+  mut i32 var = 17;
 
   # [X] Expression
 
@@ -24,14 +24,14 @@ export func main() tr::void {
   3.5e6;
 
   # [X::201] Initialization
-  tr::i32{5.5};
+  i32{5.5};
   vector v = vector{5.5, 10};
 
   # [X::202] Grouping
   (17);
 
   # [X::203] Access
-  tr::true;
+  true;
   ::main;
   var;
 
@@ -81,13 +81,13 @@ export func main() tr::void {
   17 >> 5;
 
   # [X::401] Logical NOT
-  !tr::false;
+  !false;
 
   # [X::402] Logical AND
-  tr::true && tr::true;
+  true && true;
 
   # [X::403] Logical OR
-  tr::true || tr::false;
+  true || false;
 
   # [X::501] Equal To
   17 == 60;
@@ -155,44 +155,44 @@ export func main() tr::void {
   # [T] Type
 
   # [T::101] Access
-  tr::bool flag = tr::false;
-  tr::u8 plain = 22;
+  bool flag = false;
+  u8 plain = 22;
   vector my_vec = v;
 
   # [T::102] Inferred
   auto u = v;
 
   # [T::201] Constant Qualified
-  const tr::u8 constant = 17;
+  const u8 constant = 17;
 
   # [T::202] Mutable Qualified
-  mut tr::u8 mutable = 60;
+  mut u8 mutable = 60;
 
   # [T::203] Reference Qualified
-  &tr::u8 reference = plain;
+  &u8 reference = plain;
 
   # [T::204] Mutable Reference Qualified
-  &mut tr::u8 mutable_reference = mutable;
+  &mut u8 mutable_reference = mutable;
 
   # [T::301] Function
-  type unsigned_long_binary_operation = func(tr::u64, tr::u64) tr::u64;
+  type unsigned_long_binary_operation = func(u64, u64) u64;
 
   # [S] Statement
 
   # [S::101] Define Statement
-  mut tr::i32 variable = 17;
+  mut i32 variable = 17;
 
   # [S::102] Discard Statement
   17;
 
   # [S::201] Compound Statement
   {
-    mut tr::i32 my_int = 80;
+    mut i32 my_int = 80;
     my_int++;
   }
 
   # [S::202] If Selection Statement
-  if (tr::true) 17;
+  if (true) 17;
   else 60;
 
   # [S::203] Switch Selection Statement
@@ -203,12 +203,12 @@ export func main() tr::void {
   }
 
   # [S::301] While Iteration Statement
-  mut tr::bool loop = tr::true;
+  mut bool loop = true;
   label: while (loop) {
-    loop = tr::false;
+    loop = false;
 
     # [S::302] For Iteration Statement
-    for (mut tr::i32 i = 0; i < 100; i++) {
+    for (mut i32 i = 0; i < 100; i++) {
       # [S::401] Break Jump Statement
       if (i > 50) break;
       else if (i > 40) break label;
@@ -219,7 +219,7 @@ export func main() tr::void {
   }
 
   # [S::403] Return Jump Statement
-  func returns_an_int() tr::i32 { return 5; }
+  func returns_an_int() i32 { return 5; }
 
   return;
 }
